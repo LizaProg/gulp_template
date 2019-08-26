@@ -42,14 +42,14 @@ gulp.task('style', function () {
             autoprefixer()
         ]))
         //куда положить готовый css файл НЕ минифицированный
-        .pipe(gulp.dest('../build/css'))
+        .pipe(gulp.dest('build/css'))
         //минификация файла
         .pipe(csso())
         //копирование и переименование файла
         .pipe(rename('style.min.css'))
         //кладем в папку css
         //теперь там 2 файла : минифицированный и обычный
-        .pipe(gulp.dest('../build/css'))
+        .pipe(gulp.dest('build/css'))
         //отслеживание изменений
         //удаление папки css, добавление обновленной папки css
         .pipe(browserSync.stream())
@@ -78,7 +78,7 @@ gulp.task('webp', function () {
 
 gulp.task('copy', function () {
     return gulp.src([
-        'src/fonts/**/*.{woff, woff2}',
+        'src/fonts/**',
         'src/img/**',
         'src/js/**'
     ], {
